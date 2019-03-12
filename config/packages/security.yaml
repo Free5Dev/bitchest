@@ -7,9 +7,8 @@ security:
         in_memory: { memory: ~ }
         in_database:
             entity:
-                class: App\Entity\User
+                class: 'App\Entity\Users'
                 property: email
-
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -19,14 +18,14 @@ security:
 
             provider: in_database
 
-            form_login:
+            form_login: 
                 login_path: admin_login
                 check_path: admin_login
+                default_target_path: admin_myAccount
 
             logout:
                 path: admin_logout
                 target: admin_login
-
             # activate different ways to authenticate
 
             # http_basic: true
